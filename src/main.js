@@ -4,6 +4,5 @@ document.addEventListener("DOMContentLoaded", () => {
     canvasEl.height = 500;
 
     const ctx = canvasEl.getContext("2d");
-    // const background = #000;
-    ctx.fillStyle = rgb(0,0,0);
+    
 });
