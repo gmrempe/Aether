@@ -14,7 +14,7 @@ The app will be a single page with the game displayed in the center, Aether will
 written at the top and any settings (see Bonus features) off to the right of the map.
 All nav links will be at the bottom, centered.
 
-![](https://wireframe.cc/pro/pp/d4977350b240612)
+![](https://github.com/gmrempe/Aether/blob/master/images/Homepage.png)
 
 
 ## Architecture and Technologies
@@ -33,7 +33,8 @@ Setup basic map with Canvas. Learn basics of Canvas.
   
 Day 2
 Build out player and ai ability to take control of objects.
-  * Ai class finished
+  * Finish Player class
+  * Finish Ai class
   * game class framework
   * Player logic complete
   
@@ -58,4 +59,4 @@ Cleanup bugs, if time permits add multiplayer and upgrade visualization
  * User can change colors
  * User can play against another user
  * Multiple levels
- * change visual from 2D to 3D network visualization
+ * change visual from static map to network visualization
