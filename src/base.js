@@ -2,7 +2,20 @@ class Base {
     constructor(posX, posY, color) {
         this.posX = posX,
         this.posY = posY,
-        this.color = color
+        this.color = color,
+        this.counter = 0
+        // this.incrementor = this.incrementor.bind(this);
+    }
+
+    // incrementor() {
+    //     this.counter += 1
+    // }
+
+    // setInterval( this.incrementor, 3000);
+
+    drawCounter(ctx) {
+        ctx.fillStyle = "#ffffff";
+        ctx.fillText(this.counter, this.posX -2, this.posY + 3);
     }
 
     drawBase(ctx) {
@@ -16,6 +29,11 @@ class Base {
         ctx.closePath();
     }
 
+    draw(ctx) {
+        this.drawCounter(ctx);
+        this.drawBase(ctx);
+    }
+
 }
 
-export default Base
+export default Base;

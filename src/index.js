@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const base2 = new Base(75, 75, '#ff0000');
 
     function draw(ctx) {
-        base1.drawBase(ctx);
-        base2.drawBase(ctx);
+        base1.draw(ctx);
+        base2.draw(ctx);
         // requestAnimationFrame(draw);
     }
 
