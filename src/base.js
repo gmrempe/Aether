@@ -1,23 +1,24 @@
 class Base {
-    constructor(posX, posY, color) {
-        this.posX = posX,
-        this.posY = posY,
-        this.color = color,
-        this.counter = 0
-        // this.incrementor = this.incrementor.bind(this);
+    constructor(posX, posY, color, ctx) {
+        this.posX = posX;
+        this.posY = posY;
+        this.color = color;
+        this.counter = 0;
+        this.incrementor = this.incrementor.bind(this);
+        setInterval( () => {this.incrementor(ctx)}, 700);
     }
 
-    // incrementor() {
-    //     this.counter += 1
-    // }
-
-    // setInterval( this.incrementor, 3000);
-
+    incrementor(ctx) {
+        if(this.color !== "#ffffff") {
+            this.counter += 1
+        }
+    }
+    
     drawCounter(ctx) {
-        ctx.fillStyle = "#ffffff";
+        ctx.fillStyle = "rgb(255, 255, 255)";
         ctx.fillText(this.counter, this.posX -2, this.posY + 3);
     }
-
+    
     drawBase(ctx) {
         ctx.beginPath();
         ctx.arc(this.posX, this.posY, 30, 0, Math.PI * 2);
@@ -28,12 +29,12 @@ class Base {
         ctx.fill();
         ctx.closePath();
     }
-
+    
     draw(ctx) {
         this.drawCounter(ctx);
         this.drawBase(ctx);
     }
-
+        
 }
 
 export default Base;

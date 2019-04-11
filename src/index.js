@@ -9,14 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // bases = () => {
     //    bases.push((new Base(40, 40, '#0095DD')))
     // }
-    const base1 = new Base(500, 300, '#0095DD');
-    const base2 = new Base(75, 75, '#ff0000');
+    const base1 = new Base(500, 300, '#0095DD', ctx);
+    const base2 = new Base(75, 75, '#ff0000', ctx);
+    const base3 = new Base(280, 200, '#ffffff', ctx);
 
-    function draw(ctx) {
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         base1.draw(ctx);
         base2.draw(ctx);
-        // requestAnimationFrame(draw);
+        base3.draw(ctx);
+        requestAnimationFrame(draw);
     }
 
-    draw(ctx);
+    setInterval( () => {
+        draw(ctx);
+    }, 100)    
 });
