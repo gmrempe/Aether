@@ -1,0 +1,16 @@
+{
+    "name": "Aether",
+    "private": true,
+    "dependencies": {
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.2.3"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "webpack --watch src/main.js src/bundle.js"
+    },
+    "engines": {
+        "node": "11.10.1",
+        "npm": "6.9.0"
+    }
+}
