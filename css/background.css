@@ -11,3 +11,7 @@ body {
 body > nav {
     margin-top: 40px;
 }
+
+#canvas {
+    z-index: 2;
+}
