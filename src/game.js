@@ -29,8 +29,8 @@ class Game {
 
     baseGenerator() {
         let num = Math.floor(Math.random() * 10);
-        if (num < 3) {
-            num = 3
+        if (num < 4) {
+            num = 4;
         }
         for(let i = 0; i < num; i++) {
             this.bases.push(new Base(this.basePosX(), this.basePosY(), 30, this.colorPicker()))
@@ -64,10 +64,14 @@ class Game {
     }
 
     colorPicker() {
-      if(this.bases.length < 1) {
+      if (this.bases.length < 1) {
           return '#0095DD';
-      } else if(this.bases.length < 2) {
+      } else if (this.bases.length < 2) {
           return '#ff0000';
+      } else if (this.bases.length < 3 && this.playerCount > 2) {
+          return "#ED0EE6";
+      } else if (this.bases.length < 4 && this.playerCount > 3) {
+          return "#EDAA0E";
       } else {
           return '#ffffff';
       }
