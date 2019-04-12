@@ -1,17 +1,26 @@
+
 class Base {
-    constructor(posX, posY, color) {
+    constructor(posX, posY, radius, color) {
         this.posX = posX;
         this.posY = posY;
+        this.radius = radius;
         this.color = color;
-        this.counter = 0;
+        this.counter = 20;
         this.incrementor = this.incrementor.bind(this);
-        // setInterval( () => {this.incrementor()}, 700);
+        // setInterval( () => {this.incrementor()}, 1000);
     }
 
     incrementor() {
-        if(this.color !== "#ffffff") {
+        if(this.color !== "#ffffff" && this.counter <= 50) {
             this.counter += 1
+        } else if (this.color !== "#ffffff" && this.counter > 50) {
+            this.counter += 2
         }
+    }
+
+    contains(mx, my) {
+        return (this.posX + this.radius >= mx) && (this.posX - this.radius <= mx) &&
+            (this.posY + this.radius >= my) && (this.posY - this.radius <= my);
     }
     
     drawCounter(ctx) {
@@ -21,7 +30,7 @@ class Base {
     
     drawBase(ctx) {
         ctx.beginPath();
-        ctx.arc(this.posX, this.posY, 30, 0, Math.PI * 2);
+        ctx.arc(this.posX, this.posY, this.radius, 0, Math.PI * 2);
         ctx.strokeStyle = this.color;
         ctx.lineWidth = 5;
         ctx.stroke();
