@@ -1,5 +1,4 @@
 import Base from "./base";
-import Weapon from "./weapon";
 import CanvasState from "./canvasState";
 import Player from "./player";
 
@@ -11,14 +10,13 @@ class Game {
         this.player = new Player('#0095DD', this.ctx);
         this.canvasState = new CanvasState(this.canvas, this.player);
         this.bases = [];
-        // this.base1 = new Base(500, 300, 30, '#0095DD', this.ctx);
-        // this.base2 = new Base(75, 75, 30, '#ff0000', this.ctx);
-        // this.base3 = new Base(280, 200, 30, '#ffffff', this.ctx);
         this.baseGenerator();
         this.addShapes();
-        // this.canvasState.addShape(this.base1);
-        // this.canvasState.addShape(this.base2);
-        // this.canvasState.addShape(this.base3);
+        this.gameOver = false;
+        // if (this.gameOver = true) {
+        //     gameOver();
+        // }
+        // this.gameOver();
     }
     
     addShapes() {
@@ -29,38 +27,31 @@ class Game {
 
     baseGenerator() {
         let num = Math.floor(Math.random() * 10);
-        if (num < 4) {
-            num = 4;
+        if (num < 2) {
+            num = 2;
         }
         for(let i = 0; i < num; i++) {
-            this.bases.push(new Base(this.basePosX(), this.basePosY(), 30, this.colorPicker()))
+            this.bases.push(new Base(this.basePos().x, this.basePos().y, 30, this.colorPicker()))
         }
     }
     
-    basePosX() {
+    basePos() {
         let x = Math.random() * 650;
-        if(x <= 30) {
-            x = 30;
-        }
+
         for(let i = 0; i < this.bases.length; i++) {
-            while(Math.abs(this.bases[i].posX - x) <= 50) {
+            while((Math.abs(this.bases[i].posX - x) <= 50) || (x <= 30)) {
                 x = Math.random() * 650;
             }
         }
-        return x;
-    }
-    
-    basePosY() {
+
         let y = Math.random() * 350
-        if (y <= 30) {
-            y = 30;
-        }
+
         for(let i = 0; i < this.bases,length; i++) {
-            while(Math.abs(this.bases[i].posY - y) <= 50) {
+            while((Math.abs(this.bases[i].posY - y) <= 50) || (Math.abs(this.bases[i].posX - x) <=50) || (y <= 30)) {
                 y = Math.random() * 350;
             }
         }
-        return y;
+        return {y: y, x: x};
     }
 
     colorPicker() {
@@ -77,16 +68,42 @@ class Game {
       }
     }
 
+    isGameOver() {
+        for(let i = 0; i<this.bases.length; i++) {
+            if ((this.bases[i].color != this.player.color) && (this.bases[i].color != "#ffffff")) {
+                return;
+            } else if (this.bases[i].color === "#ffffff") {
+                continue;
+            }
+        }
+        this.gameOver = true;
+    }
+    
+    drawEndGame() {
+        this.ctx.font = "30px Arial"
+        this.ctx.fillStyle = "#42f4f4"
+        this.ctx.fillText("GAMEOVER Press Enter to retry!", 50, 50)
+        clearInterval();
+
+        document.addEventListener('keydown', function (event) {
+            const key_press = String.fromCharCode(event.keyCode);
+            if (event.keyCode == 13) { location.reload(); }
+        });
+    }
+    
     drawGame() {
         for (let i = 0; i < this.bases.length; i++) {
             this.bases[i].draw(this.ctx);
         }
-        // this.base1.draw(this.ctx);
-        // this.base2.draw(this.ctx);
-        // this.base3.draw(this.ctx);
-        this.player.playerDraw(this.ctx);
-    }
 
+        this.player.playerDraw(this.ctx);
+
+        this.isGameOver();
+        if (this.gameOver === true) {
+            this.drawEndGame();
+        }
+    }
+    
 }
 
 export default Game;
