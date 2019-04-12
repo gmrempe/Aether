@@ -1,7 +1,7 @@
 class Weapon {
     constructor(posX, posY, color, delta, owner, target) {
-        this.posX = posX + Math.random() * 20;
-        this.posY = posY + Math.random() * 20;
+        this.posX = posX + Math.random() * 25;
+        this.posY = posY + Math.random() * 25;
         this.color = color;
         this.dx = delta.dx;
         this.dy = delta.dy;
@@ -12,7 +12,7 @@ class Weapon {
 
     weaponDraw(ctx) {
         ctx.beginPath();
-        ctx.arc(this.posX, this.posY, 2, 0, Math.PI * 2);
+        ctx.arc(this.posX, this.posY, 1, 0, Math.PI * 2);
         ctx.fillStyle = this.color;
         ctx.fill();
 
