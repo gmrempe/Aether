@@ -1,6 +1,7 @@
 import Base from "./base";
 import CanvasState from "./canvasState";
 import Player from "./player";
+import AI from "./ai";
 
 class Game {
     constructor(canvasEl, ctx, playerCount) {
@@ -12,6 +13,7 @@ class Game {
         this.bases = [];
         this.baseGenerator();
         this.addShapes();
+        this.ai = new AI('#ff0000', this.ctx, this.bases)
         this.gameOver = false;
         this.won = false;
     }
@@ -83,7 +85,7 @@ class Game {
     
     drawEndGame() {
         this.ctx.font = "30px Arial"
-        this.ctx.fillStyle = "#0d3a3a"
+        this.ctx.fillStyle = "#d6ffff"
         if (this.won === true) {
             this.ctx.fillText("You Win! Press Enter to retry", 50, 50)
         } else {
@@ -103,6 +105,7 @@ class Game {
         }
 
         this.player.playerDraw(this.ctx);
+        this.ai.playerDraw(this.ctx);
 
         this.isGameOver();
         if (this.gameOver === true) {
