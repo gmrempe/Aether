@@ -17,13 +17,15 @@ class Weapon {
         ctx.fill();
 
         if(this.moves < 1) {
-            this.owner.weapons.pop();
+            this.owner.weapons.shift();
             if(this.color === this.target.color) {
                 this.target.counter += 0.5
             } else if (this.target.counter > 0) {
                 this.target.counter -= 0.5;
             } else if (this.target.counter <= 0) {
-                // debugger
+                if (this.target.color === '#ffffff') {
+                    setInterval(() => { this.target.incrementor() }, 1000);
+                }
                 this.target.color = this.color;
                 this.target.counter = 5;
             }

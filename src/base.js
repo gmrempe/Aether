@@ -7,7 +7,9 @@ class Base {
         this.color = color;
         this.counter = 20;
         this.incrementor = this.incrementor.bind(this);
-        // setInterval( () => {this.incrementor()}, 1000);
+        if (this.color != '#ffffff') {
+            // setInterval( () => {this.incrementor()}, 1000);
+        }
     }
 
     incrementor() {
