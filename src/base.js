@@ -1,14 +1,14 @@
 class Base {
-    constructor(posX, posY, color, ctx) {
+    constructor(posX, posY, color) {
         this.posX = posX;
         this.posY = posY;
         this.color = color;
         this.counter = 0;
         this.incrementor = this.incrementor.bind(this);
-        setInterval( () => {this.incrementor(ctx)}, 700);
+        // setInterval( () => {this.incrementor()}, 700);
     }
 
-    incrementor(ctx) {
+    incrementor() {
         if(this.color !== "#ffffff") {
             this.counter += 1
         }
@@ -31,8 +31,8 @@ class Base {
     }
     
     draw(ctx) {
-        this.drawCounter(ctx);
         this.drawBase(ctx);
+        this.drawCounter(ctx);
     }
         
 }

@@ -1,9 +1,19 @@
 import Base from "./base";
+import Weapon from "./weapon";
 
 document.addEventListener("DOMContentLoaded", () => {
     const canvasEl = document.getElementById("canvas");
-
     const ctx = canvasEl.getContext("2d");
+
+
+    document.addEventListener("onmousedown", () => {
+        
+        // if e.target.color === player.color
+    })
+
+    document.addEventListener("onmouseup", () => {
+
+    })
 
     // const bases = [];    //put bases into array and then iterate through to draw
     // bases = () => {
@@ -18,10 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
         base1.draw(ctx);
         base2.draw(ctx);
         base3.draw(ctx);
-        requestAnimationFrame(draw);
+        // requestAnimationFrame(draw);
     }
 
-    setInterval( () => {
+    // rquestAnimationFrame( () => {
         draw(ctx);
-    }, 100)    
+    // })    
 });
