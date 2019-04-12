@@ -13,10 +13,7 @@ class Game {
         this.baseGenerator();
         this.addShapes();
         this.gameOver = false;
-        // if (this.gameOver = true) {
-        //     gameOver();
-        // }
-        // this.gameOver();
+        this.won = false;
     }
     
     addShapes() {
@@ -76,13 +73,22 @@ class Game {
                 continue;
             }
         }
+        for(let i = 0; i<this.bases.length; i++) {
+            if (this.bases[i].color === this.player.color) {
+                this.won = true;
+            }
+        }
         this.gameOver = true;
     }
     
     drawEndGame() {
         this.ctx.font = "30px Arial"
-        this.ctx.fillStyle = "#42f4f4"
-        this.ctx.fillText("GAMEOVER Press Enter to retry!", 50, 50)
+        this.ctx.fillStyle = "#0d3a3a"
+        if (this.won === true) {
+            this.ctx.fillText("You Win! Press Enter to retry", 50, 50)
+        } else {
+            this.ctx.fillText("GAMEOVER Press Enter to retry", 50, 50)
+        }
         clearInterval();
 
         document.addEventListener('keydown', function (event) {
