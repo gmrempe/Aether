@@ -16,9 +16,17 @@ class Weapon {
         ctx.fillStyle = this.color;
         ctx.fill();
 
-        if(this.moves <= 0) {
-            // this.target.counter -= 1;
+        if(this.moves < 1) {
             this.owner.weapons.pop();
+            if(this.color === this.target.color) {
+                this.target.counter += 0.5
+            } else if (this.target.counter > 0) {
+                this.target.counter -= 0.5;
+            } else if (this.target.counter <= 0) {
+                // debugger
+                this.target.color = this.color;
+                this.target.counter = 5;
+            }
         }
 
         this.posX -= this.dx;
