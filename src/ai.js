@@ -7,10 +7,10 @@ class AI extends Player {
         this.bases = bases;
         this.myBases = [];
         this.targetBases = [];
-        setInterval( () => this.attack(), 3000);
+        setInterval( () => this.attackPatternMedium(), 3000);
     }
 
-    attack() {
+    attackPatternMedium() {
         this.sortBases();
         for(let j = 0; j < this.myBases.length; j++) {
             for(let i = 0; i < this.targetBases.length; i++) {

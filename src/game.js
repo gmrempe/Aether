@@ -26,8 +26,8 @@ class Game {
 
     baseGenerator() {
         let num = Math.floor(Math.random() * 10);
-        if (num < 2) {
-            num = 2;
+        if (num <= this.playerCount) {
+            num = this.playerCount + 1;
         }
         for(let i = 0; i < num; i++) {
             this.bases.push(new Base(this.basePos().x, this.basePos().y, 30, this.colorPicker()))
@@ -67,16 +67,24 @@ class Game {
       }
     }
 
-    isGameOver() {
-        for(let i = 0; i<this.bases.length; i++) {
-            if ((this.bases[i].color != this.player.color) && (this.bases[i].color != "#ffffff")) {
-                return;
-            } else if (this.bases[i].color === "#ffffff") {
-                continue;
-            } else if (this.bases[i].color === this.player.color) {
-                this.won = true;
+    playerBases() {
+        const playerBases = [];
+        for (let i = 0; i < this.bases.length; i++) {
+            if(this.bases[i].color !== "#ffffff") {
+                playerBases.push(this.bases[i].color)
             }
         }
+        return playerBases;
+    }
+
+    isGameOver() {
+        const playerBases = this.playerBases();
+            if (playerBases.includes(this.player.color) && (playerBases.includes(this.ai.color))) {
+                return;
+            }
+            if (playerBases.includes(this.player.color)) {
+                this.won = true;
+            }
 
         this.gameOver = true;
     }
@@ -85,7 +93,7 @@ class Game {
         this.ctx.font = "30px Arial"
         this.ctx.fillStyle = "#d6ffff"
         if (this.won === true) {
-            this.ctx.fillText("You Win! Press Enter to retry", 50, 50)
+            this.ctx.fillText("You Win! Press Enter to play again", 50, 50)
         } else {
             this.ctx.fillText("GAMEOVER Press Enter to retry", 50, 50)
         }
