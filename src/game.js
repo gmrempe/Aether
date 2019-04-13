@@ -24,17 +24,17 @@ class Game {
             this.canvasState.addShape(this.bases[i]);
         }
     }
-
+ 
     aiPlayerGenerator() {
         if (this.playerCount === 2) {
-            this.aiPlayers.push(this.aiRed = new AI('#ff0000', this.bases));
-        } else if (this.playerCOunt === 3) {
-            this.aiPlayers.push(this.aiRed = new AI('#ff0000', this.bases));
-            this.aiPlayers.push(this.aiPurple = new AI("#ED0EE6", this.bases));
-        } else if (this.playerCOunt === 4) {
-            this.aiPlayers.push(this.aiRed = new AI('#ff0000', this.bases));
-            this.aiPlayers.push(this.aiPurple = new AI("#ED0EE6", this.bases));
-            this.aiPlayers.push(this.aiYellow = new AI("#EDAA0E", this.bases));
+            this.aiPlayers.push(this.aiRed = new AI('#ff0000', this.bases, 1, 3000));
+        } else if (this.playerCount === 3) {
+            this.aiPlayers.push(this.aiRed = new AI('#ff0000', this.bases, 1, 3000));
+            this.aiPlayers.push(this.aiPurple = new AI("#ED0EE6", this.bases, 2, 3000));
+        } else if (this.playerCount === 4) {
+            this.aiPlayers.push(this.aiRed = new AI('#ff0000', this.bases, 1, 3000));
+            this.aiPlayers.push(this.aiPurple = new AI("#ED0EE6", this.bases, 2, 1000));
+            this.aiPlayers.push(this.aiYellow = new AI("#EDAA0E", this.bases, 3, 3000));
         }
     }
 
