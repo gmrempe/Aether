@@ -5,17 +5,17 @@ class Base {
         this.posY = posY;
         this.radius = radius;
         this.color = color;
-        this.counter = 20;
+        this.counter = 5;
         this.incrementor = this.incrementor.bind(this);
         if (this.color != '#ffffff') {
-            // setInterval( () => {this.incrementor()}, 1000);
+            setInterval( () => {this.incrementor()}, 1000);
         }
     }
 
     incrementor() {
-        if(this.counter <= 50) {
+        if(this.counter <= 25) {
             this.counter += 1
-        } else if (this.counter > 50) {
+        } else if (this.counter > 25) {
             this.counter += 2
         }
     }

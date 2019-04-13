@@ -8,12 +8,12 @@ class Game {
         this.ctx = ctx;
         this.canvas = canvasEl;
         this.playerCount = playerCount;
-        this.player = new Player('#0095DD', this.ctx);
+        this.player = new Player('#0095DD');
         this.canvasState = new CanvasState(this.canvas, this.player);
         this.bases = [];
         this.baseGenerator();
         this.addShapes();
-        this.ai = new AI('#ff0000', this.ctx, this.bases)
+        this.ai = new AI('#ff0000', this.bases)
         this.gameOver = false;
         this.won = false;
     }
@@ -73,13 +73,11 @@ class Game {
                 return;
             } else if (this.bases[i].color === "#ffffff") {
                 continue;
-            }
-        }
-        for(let i = 0; i<this.bases.length; i++) {
-            if (this.bases[i].color === this.player.color) {
+            } else if (this.bases[i].color === this.player.color) {
                 this.won = true;
             }
         }
+
         this.gameOver = true;
     }
     
