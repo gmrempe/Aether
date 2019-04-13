@@ -13,7 +13,8 @@ class Game {
         this.bases = [];
         this.baseGenerator();
         this.addShapes();
-        this.ai = new AI('#ff0000', this.bases)
+        this.aiPlayers = [];
+        this.aiPlayerGenerator();
         this.gameOver = false;
         this.won = false;
     }
@@ -21,6 +22,19 @@ class Game {
     addShapes() {
         for (let i = 0; i < this.bases.length; i++) {
             this.canvasState.addShape(this.bases[i]);
+        }
+    }
+
+    aiPlayerGenerator() {
+        if (this.playerCount === 2) {
+            this.aiPlayers.push(this.aiRed = new AI('#ff0000', this.bases));
+        } else if (this.playerCOunt === 3) {
+            this.aiPlayers.push(this.aiRed = new AI('#ff0000', this.bases));
+            this.aiPlayers.push(this.aiPurple = new AI("#ED0EE6", this.bases));
+        } else if (this.playerCOunt === 4) {
+            this.aiPlayers.push(this.aiRed = new AI('#ff0000', this.bases));
+            this.aiPlayers.push(this.aiPurple = new AI("#ED0EE6", this.bases));
+            this.aiPlayers.push(this.aiYellow = new AI("#EDAA0E", this.bases));
         }
     }
 
@@ -68,10 +82,10 @@ class Game {
     }
 
     playerBases() {
-        const playerBases = [];
+        const playerBases = {};
         for (let i = 0; i < this.bases.length; i++) {
             if(this.bases[i].color !== "#ffffff") {
-                playerBases.push(this.bases[i].color)
+                playerBases[(this.bases[i].color)] = true;
             }
         }
         return playerBases;
@@ -79,10 +93,10 @@ class Game {
 
     isGameOver() {
         const playerBases = this.playerBases();
-            if (playerBases.includes(this.player.color) && (playerBases.includes(this.ai.color))) {
+            if ((this.player.color in playerBases) && (Object.keys(playerBases).length > 1)) {
                 return;
             }
-            if (playerBases.includes(this.player.color)) {
+            if (this.player.color in playerBases) {
                 this.won = true;
             }
 
@@ -109,12 +123,16 @@ class Game {
         for (let i = 0; i < this.bases.length; i++) {
             this.bases[i].draw(this.ctx);
         }
-
+        
         this.player.playerDraw(this.ctx);
-        this.ai.playerDraw(this.ctx);
+        
+        for (let i = 0; i < this.aiPlayers.length; i++) {
+            this.aiPlayers[i].playerDraw(this.ctx);
+        }
 
         this.isGameOver();
         if (this.gameOver === true) {
+            this.ctx.clearRect(0, 0, canvas.width, canvas.height);
             this.drawEndGame();
         }
     }
