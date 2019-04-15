@@ -1,0 +1,45 @@
+.ui-wrapper {
+    /* display: none; */
+    height: 60%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    /* z-index: -1; */
+}
+
+.instructions {
+    margin-top: 100px;
+    /* z-index: 2; */
+}
+
+.instructions > ul {
+    padding-left: 0px;
+}
+
+.instructions > ul > p {
+    text-shadow: 0.5px 1px #000;
+    text-align: center;
+}
+
+.button {
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid rgb(38, 47, 170);
+    color: white;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background-color: rgb(24, 58, 251);
+    background-image: linear-gradient(to bottom, rgb(24, 58, 251) 0%, rgb(38, 47, 170) 100%);
+    border-radius: 5px;
+    text-align: center;
+    /* z-index: 2; */
+}
+
+.button:hover {
+    background-color: rgb(24, 58, 251);
+    background-image: linear-gradient(to bottom, rgb(38, 47, 170) 0%, rgb(24, 58, 251) 100%);
+}

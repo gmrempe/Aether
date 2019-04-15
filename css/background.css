@@ -1,7 +1,5 @@
 body {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     margin-top: 50px;
     background-image: url("../images/wind.jpg");
     background-size: cover;
@@ -9,17 +7,11 @@ body {
     /* background-color: #0289f0; */
 }
 
-.settings {
-    margin-top: 100px;
-}
-
-.settings > ul {
-    padding-left: 0px;
-    padding-right: 20px;
-}
-
-.settings > ul > p {
-    text-shadow: 0.5px 1px #000;
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 body > section > nav {
@@ -30,14 +22,4 @@ body > section > nav {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-}
-
-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#canvas {
-    z-index: 2;
 }
