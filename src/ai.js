@@ -42,8 +42,8 @@ class AI extends Player {
                     this.swarm(this.myBases[j], this.targetBases[i])
                     this.madeAttack = true;
                     setTimeout(() => this.madeAttack = false, 10000);
-                    this.breakDeadLock();
                 } else {
+                    this.breakDeadLock();
                 }
             }
         }

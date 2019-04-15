@@ -24,7 +24,7 @@ class Weapon {
                 this.target.counter -= 0.5;
             } else if (this.target.counter <= 0) {
                 if (this.target.color === '#ffffff') {
-                    setInterval(() => { this.target.incrementor() }, 1000);
+                    setInterval(() => { this.target.incrementor() }, 1500);
                 }
                 this.target.color = this.color;
                 this.target.counter = 5;
