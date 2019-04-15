@@ -44,23 +44,22 @@ class Game {
             num = this.playerCount + 1;
         }
         for(let i = 0; i < num; i++) {
-            this.bases.push(new Base(this.basePos().x, this.basePos().y, 29, this.colorPicker()))
+            this.bases.push(new Base(this.basePos(), 29, this.colorPicker()))
         }
     }
     
     basePos() {
         let x = Math.random() * 650;
+        let y = Math.random() * 350;
 
         for(let i = 0; i < this.bases.length; i++) {
             while((Math.abs(this.bases[i].posX - x) <= 50) || (x <= 30)) {
                 x = Math.random() * 650;
             }
         }
-
-        let y = Math.random() * 350
-
-        for(let i = 0; i < this.bases,length; i++) {
-            while((Math.abs(this.bases[i].posY - y) <= 50) || (Math.abs(this.bases[i].posX - x) <=50) || (y <= 30)) {
+        // debugger
+        for(let i = 0; i < this.bases.length; i++) {
+            while((Math.abs(this.bases[i].posY - y) <= 50) || (y <= 30)) {
                 y = Math.random() * 350;
             }
         }
@@ -105,7 +104,7 @@ class Game {
     
     drawEndGame() {
         this.ctx.font = "30px Arial"
-        this.ctx.fillStyle = "#d6ffff"
+        this.ctx.fillStyle = "#ffffff"
         if (this.won === true) {
             this.ctx.fillText("You Win! Press Enter to play again", 115, 50)
         } else {

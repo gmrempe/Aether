@@ -1,8 +1,8 @@
 
 class Base {
-    constructor(posX, posY, radius, color) {
-        this.posX = posX;
-        this.posY = posY;
+    constructor(pos, radius, color) {
+        this.posX = pos.x;
+        this.posY = pos.y;
         this.radius = radius;
         this.color = color;
         this.counter = 5;

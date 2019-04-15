@@ -2,28 +2,24 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* align-items: center; */
     margin-top: 50px;
-    /* background-image: url("../images/wind.jpg");
+    background-image: url("../images/wind.jpg");
     background-size: cover;
-    background-repeat: no-repeat;  */
-    background-color: #0289f0;
+    background-repeat: no-repeat; 
+    /* background-color: #0289f0; */
 }
 
 .settings {
-    /* display: flex; */
-    /* align-items: center; */
-    /* width: 100px; */
     margin-top: 100px;
 }
 
 .settings > ul {
     padding-left: 0px;
     padding-right: 20px;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
+}
+
+.settings > ul > p {
+    text-shadow: 0.5px 1px #000;
 }
 
 body > section > nav {
