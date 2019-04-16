@@ -26,23 +26,29 @@ document.addEventListener("DOMContentLoaded", () => {
     
     function show(ele) {
         ele.style.display = 'block';
+        ele.style.zIndex = "2";
     };
     
     document.querySelectorAll('.play')[0].addEventListener('click', function () {
         hide(menu);
-        startGame(4);
+        startGame(4, 3000, 5);
     });
     
     document.querySelectorAll('.settings')[0].addEventListener('click', function () {
         hide(menu);
         show(settings);
     });
+
+    document.querySelectorAll('.back')[0].addEventListener('click', function () {
+        hide(settings);
+        show(menu);
+    });
 });
 
-const startGame = (playerCount = 4) => {  
+const startGame = (playerCount = 4, delay = 3000, baseNumber = 3) => {  
     const canvasEl = document.getElementById("canvas");
     const ctx = canvasEl.getContext("2d");
-    const game = new Game(canvasEl, ctx, playerCount);  
+    const game = new Game(canvasEl, ctx, playerCount, delay, baseNumber);  
     
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);

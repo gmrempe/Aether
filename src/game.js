@@ -4,10 +4,12 @@ import Player from "./player";
 import AI from "./ai";
 
 class Game {
-    constructor(canvasEl, ctx, playerCount) {
+    constructor(canvasEl, ctx, playerCount, delay, baseNumber) {
         this.ctx = ctx;
         this.canvas = canvasEl;
         this.playerCount = playerCount;
+        this.delay = delay;
+        this.baseNumber = baseNumber;
         this.player = new Player('#327f95');
         this.canvasState = new CanvasState(this.canvas, this.player);
         this.bases = [];
@@ -27,19 +29,19 @@ class Game {
  
     aiPlayerGenerator() {
         if (this.playerCount === 2) {
-            this.aiPlayers.push(this.aiRed = new AI('#c60707', this.bases, 1, 3000));
+            this.aiPlayers.push(this.aiRed = new AI('#c60707', this.bases, 1, this.delay));
         } else if (this.playerCount === 3) {
-            this.aiPlayers.push(this.aiRed = new AI('#c60707', this.bases, 1, 3000));
-            this.aiPlayers.push(this.aiPurple = new AI("#249310", this.bases, 2, 3000));
+            this.aiPlayers.push(this.aiRed = new AI('#c60707', this.bases, 1, this.delay));
+            this.aiPlayers.push(this.aiPurple = new AI("#249310", this.bases, 2, this.delay));
         } else if (this.playerCount === 4) {
-            this.aiPlayers.push(this.aiRed = new AI('#c60707', this.bases, 1, 3000));
-            this.aiPlayers.push(this.aiPurple = new AI("#249310", this.bases, 2, 3000));
-            this.aiPlayers.push(this.aiYellow = new AI("#830f92", this.bases, 3, 3000));
+            this.aiPlayers.push(this.aiRed = new AI('#c60707', this.bases, 1, this.delay));
+            this.aiPlayers.push(this.aiPurple = new AI("#249310", this.bases, 2, this.delay));
+            this.aiPlayers.push(this.aiYellow = new AI("#830f92", this.bases, 3, this.delay));
         }
     }
 
     baseGenerator() {
-        let num = Math.floor(Math.random() * 7);
+        let num = this.baseNumber;
         if (num <= this.playerCount) {
             num = this.playerCount + 1;
         }
