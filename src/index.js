@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
- const startGame = (playerCount = 4) => {  
+const startGame = (playerCount = 4) => {  
     const canvasEl = document.getElementById("canvas");
     const ctx = canvasEl.getContext("2d");
     const game = new Game(canvasEl, ctx, playerCount);  

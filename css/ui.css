@@ -43,6 +43,7 @@
 .button:hover {
     background-color: #5b9296;
     background-image: linear-gradient(to bottom, #327f95 0%, #5b9296 100%);
+    cursor: pointer;
 }
 
 #restart {
@@ -64,7 +65,7 @@
 
 #settings {
     display: none;
-    height: 60%;
+    height: 50%;
     overflow: auto;
     margin: auto;
     position: absolute;
@@ -73,6 +74,16 @@
 
 #settings > ul {
     color: #d6d9ca;
+    list-style-type: none;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#settings > ul > li {
+    text-align: center;
+    margin-bottom: 16px;
 }
 
 #credits {
@@ -81,9 +92,19 @@
     overflow: auto;
     margin: auto;
     position: absolute;
+    list-style-type: none;
+    padding: 0px;
     top: 0; left: 0; bottom: 0; right: 0; 
+    text-align: center;
+    margin-top: 200px;
 }
 
-.credits:hover #credits {
+#credits > li {
+    margin-bottom: 5px;
+    color: #327f95;
+}
+
+.credits:hover ~ #credits {
     display: block;
+    z-index: 3;
 }
