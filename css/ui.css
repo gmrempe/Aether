@@ -11,7 +11,7 @@
 }
 
 .instructions {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .instructions > ul {
@@ -56,4 +56,34 @@
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.settings {
+    margin-top: 15px;
+}
+
+#settings {
+    display: none;
+    height: 60%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#settings > ul {
+    color: #d6d9ca;
+}
+
+#credits {
+    display: none;
+    height: 60%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0; 
+}
+
+.credits:hover #credits {
+    display: block;
 }
