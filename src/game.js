@@ -105,8 +105,8 @@ class Game {
     }
     
     drawEndGame() {
-        this.ctx.font = "30px Arial"
-        this.ctx.fillStyle = "#d6d9ca"
+        this.ctx.font = "30px Arial";
+        this.ctx.fillStyle = "#d6d9ca";
         
         if (this.won === true) {
             this.ctx.fillText("You Won!", 283, 50)
@@ -120,6 +120,18 @@ class Game {
             e.currentTarget.parentElement.firstElementChild.style.display = 'none';
             e.currentTarget.parentElement.style.zIndex = '-1';
         };
+
+        this.ctx.font = "10px Arial";
+        const b1 = new Base({ x: 70, y: 140 }, 25, "#327f95");
+        const b2 = new Base({ x: 550, y: 40 }, 25, "green");
+        const b3 = new Base({ x: 520, y: 250 }, 25, "#d6d9ca");
+        const b4 = new Base({ x: 400, y: 350 }, 25, "purple");
+        const b5 = new Base({ x: 150, y: 280 }, 25, "red");
+        b1.draw(this.ctx);
+        b2.draw(this.ctx);
+        b3.draw(this.ctx);
+        b4.draw(this.ctx);
+        b5.draw(this.ctx);
 
         const ele = document.getElementById("restart");
         ele.style.display = 'block';
