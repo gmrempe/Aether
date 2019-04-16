@@ -109,7 +109,7 @@ class Game {
         this.ctx.fillStyle = "#d6d9ca"
         
         if (this.won === true) {
-            this.ctx.fillText("You Won!", 280, 50)
+            this.ctx.fillText("You Won!", 283, 50)
         } else {
             this.ctx.fillText("GAME OVER", 260, 50)
         }
