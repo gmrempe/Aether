@@ -30,8 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     
     document.querySelectorAll('.play')[0].addEventListener('click', function () {
+        const playerCount = parseInt(document.querySelector('input[name="aiSelector"]:checked').value, 10) + 1;
+        const delay = parseInt(document.querySelector('input[name="difficulty"]:checked').value, 10);
+        const baseNumber = parseInt(document.querySelector('input[name="numCircles"]:checked').value, 10);
         hide(menu);
-        startGame(4, 3000, 5);
+        startGame(playerCount, delay, baseNumber);
     });
     
     document.querySelectorAll('.settings')[0].addEventListener('click', function () {
@@ -45,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-const startGame = (playerCount = 4, delay = 3000, baseNumber = 3) => {  
+const startGame = (playerCount, delay, baseNumber) => {  
     const canvasEl = document.getElementById("canvas");
     const ctx = canvasEl.getContext("2d");
     const game = new Game(canvasEl, ctx, playerCount, delay, baseNumber);  
