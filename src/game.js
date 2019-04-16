@@ -8,7 +8,7 @@ class Game {
         this.ctx = ctx;
         this.canvas = canvasEl;
         this.playerCount = playerCount;
-        this.player = new Player('#f9f913');
+        this.player = new Player('#327f95');
         this.canvasState = new CanvasState(this.canvas, this.player);
         this.bases = [];
         this.baseGenerator();
@@ -39,28 +39,28 @@ class Game {
     }
 
     baseGenerator() {
-        let num = Math.floor(Math.random() * 10);
+        let num = Math.floor(Math.random() * 7);
         if (num <= this.playerCount) {
             num = this.playerCount + 1;
         }
         for(let i = 0; i < num; i++) {
-            this.bases.push(new Base(this.basePos(), 29, this.colorPicker()))
+            this.bases.push(new Base(this.basePos(), 25, this.colorPicker()))
         }
     }
     
     basePos() {
-        let x = Math.random() * 650;
-        let y = Math.random() * 350;
+        let x = 30 + (Math.random() * 630);
+        let y = 30 + (Math.random() * 320);
 
         for(let i = 0; i < this.bases.length; i++) {
-            while((Math.abs(this.bases[i].posX - x) <= 50) || (x <= 30)) {
-                x = Math.random() * 650;
+            while(Math.abs(this.bases[i].posX - x) <= 35) {
+                x = 30 + (Math.random() * 630);
             }
         }
-        // debugger
+        
         for(let i = 0; i < this.bases.length; i++) {
-            while((Math.abs(this.bases[i].posY - y) <= 50) || (y <= 30)) {
-                y = Math.random() * 350;
+            while(Math.abs(this.bases[i].posY - y) <= 35) {
+                y =  30 + (Math.random() * 320);
             }
         }
         return {y: y, x: x};
@@ -68,7 +68,7 @@ class Game {
 
     colorPicker() {
       if (this.bases.length < 1) {
-          return '#f9f913';
+          return '#327f95';
       } else if (this.bases.length < 2) {
           return '#c60707';
       } else if (this.bases.length < 3 && this.playerCount > 2) {
@@ -76,14 +76,14 @@ class Game {
       } else if (this.bases.length < 4 && this.playerCount > 3) {
           return "#830f92";
       } else {
-          return '#ffffff';
+          return '#d6d9ca';
       }
     }
 
     playerBases() {
         const playerBases = {};
         for (let i = 0; i < this.bases.length; i++) {
-            if(this.bases[i].color !== "#ffffff") {
+            if (this.bases[i].color !== "#d6d9ca") {
                 playerBases[(this.bases[i].color)] = true;
             }
         }
@@ -104,18 +104,29 @@ class Game {
     
     drawEndGame() {
         this.ctx.font = "30px Arial"
-        this.ctx.fillStyle = "#ffffff"
+        this.ctx.fillStyle = "#d6d9ca"
+        
         if (this.won === true) {
-            this.ctx.fillText("You Win! Press Enter to play again", 115, 50)
+            this.ctx.fillText("You Won!", 280, 50)
         } else {
-            this.ctx.fillText("GAMEOVER Press Enter to retry", 115, 50)
+            this.ctx.fillText("GAME OVER", 260, 50)
         }
         clearInterval();
 
-        document.addEventListener('keydown', function (event) {
-            const key_press = String.fromCharCode(event.keyCode);
-            if (event.keyCode == 13) { location.reload(); }
+        function hide(e) {
+            e.target.style.display = 'none';
+            e.currentTarget.parentElement.firstElementChild.style.display = 'none';
+            e.currentTarget.parentElement.style.zIndex = '-1';
+        };
+
+        const ele = document.getElementById("restart");
+        ele.style.display = 'block';
+        ele.parentElement.style.zIndex = '2';
+        ele.childNodes[1].addEventListener('click', function (ele) {
+            hide(ele);
+            location.reload();
         });
+
     }
     
     drawGame() {

@@ -11,7 +11,7 @@
     <body>
         <section>
             <h1>Aether</h1>
-            <canvas id="canvas" height="400" width="700">
+            <canvas id="canvas" height="400" width="700" style="background-color: black">
                 <p>Your browser does not support the required functionality for this game</p>
             </canvas>
             <nav>
@@ -29,15 +29,19 @@
         <div id="ui-wrapper" class="ui-wrapper">
             <div id="instructions" class="instructions">
                 <ul>
-                    <p>Your color is yellow</p>
+                    <p>Your color is blue</p>
                     <p>Click and drag to attack</p>
+                    <p>White circles are neutral</p>
                     <p>The numbers represent the power of each circle</p>
                     <p>If your circle number goes below 0, you lose it</p>
-                    <p>Wipe out the other colors to win</p>
+                    <p>Take control of all colored circles to win</p>
                 </ul>
             </div>
-            <a href="#" class="button play">Start Game</a>
+            <a href="javascript:void(0)" class="button play">Start Game</a>
             <div id="settings" class="settings"></div>
+        </div>
+        <div id="restart">
+            <a href="javascript:void(0)" class="button restart">Menu</a>
         </div>
     </body>
     <script type="application/javascript" src="./dist/main.js"></script>

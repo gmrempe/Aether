@@ -7,7 +7,7 @@ class Base {
         this.color = color;
         this.counter = 5;
         this.incrementor = this.incrementor.bind(this);
-        if (this.color != '#ffffff') {
+        if (this.color != '#d6d9ca') {
             setInterval( () => {this.incrementor()}, 1500);
         }
     }
@@ -33,9 +33,6 @@ class Base {
     drawBase(ctx) {
         ctx.beginPath();
         ctx.arc(this.posX, this.posY, this.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(0,0,0,.65)';
-        ctx.lineWidth = 12;
-        ctx.stroke();
         ctx.strokeStyle = this.color;
         ctx.lineWidth = 11;
         ctx.stroke();

@@ -1,16 +1,17 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 .ui-wrapper {
-    /* display: none; */
     height: 60%;
     overflow: auto;
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
-    /* z-index: -1; */
 }
 
 .instructions {
     margin-top: 100px;
-    /* z-index: 2; */
 }
 
 .instructions > ul {
@@ -18,8 +19,9 @@
 }
 
 .instructions > ul > p {
-    text-shadow: 0.5px 1px #000;
     text-align: center;
+    color: #d6d9ca;
+    font-size: 16px;
 }
 
 .button {
@@ -28,18 +30,30 @@
     margin: 0 auto;
     height: 30px;
     line-height: 30px;
-    border: 1px solid rgb(38, 47, 170);
-    color: white;
+    border: 1px solid #5b9296;
+    color: #d6d9ca;
     font-weight: bold;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    background-color: rgb(24, 58, 251);
-    background-image: linear-gradient(to bottom, rgb(24, 58, 251) 0%, rgb(38, 47, 170) 100%);
+    background-color: #327f95;
+    background-image: linear-gradient(to bottom, #5b9296 0%, #327f95 100%);
     border-radius: 5px;
     text-align: center;
-    /* z-index: 2; */
 }
 
 .button:hover {
-    background-color: rgb(24, 58, 251);
-    background-image: linear-gradient(to bottom, rgb(38, 47, 170) 0%, rgb(24, 58, 251) 100%);
+    background-color: #5b9296;
+    background-image: linear-gradient(to bottom, #327f95 0%, #5b9296 100%);
+}
+
+#restart {
+    display: none;
+    text-align: center;
+    padding-top: 92px;
+    z-index: 1;
+    width: 600px;
+    height: 360px;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
 }

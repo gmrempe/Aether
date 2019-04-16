@@ -74,7 +74,7 @@ class AI extends Player {
         this.myBases = [];
         this.targetBases = [];
         for(let i = 0; i < this.bases.length; i++) {
-            if ((this.bases[i].color === this.color) && (!this.myBases.includes(this.bases[i])))  {
+            if (this.bases[i].color === this.color) {
                 this.myBases.push(this.bases[i])
             } else if ((this.bases[i].color != this.color) && (!this.targetBases.includes(this.bases[i])))  {
                 this.targetBases.push(this.bases[i])

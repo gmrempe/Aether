@@ -12,7 +12,7 @@ class Weapon {
 
     weaponDraw(ctx) {
         ctx.beginPath();
-        ctx.arc(this.posX, this.posY, 1, 0, Math.PI * 2);
+        ctx.arc(this.posX, this.posY, 2, 0, Math.PI * 2);
         ctx.fillStyle = this.color;
         ctx.fill();
 
@@ -23,7 +23,7 @@ class Weapon {
             } else if (this.target.counter > 0) {
                 this.target.counter -= 0.5;
             } else if (this.target.counter <= 0) {
-                if (this.target.color === '#ffffff') {
+                if (this.target.color === '#d6d9ca') {
                     setInterval(() => { this.target.incrementor() }, 1500);
                 }
                 this.target.color = this.color;
