@@ -23,5 +23,5 @@ body > section > nav {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    z-index: 2;
+    z-index: 3;
 }

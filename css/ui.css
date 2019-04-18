@@ -12,12 +12,10 @@
 
 .ui-wrapper > h1 {
     text-align: center;
-    /* color: #5b9296; */
     margin-top: 5px;
     color: #d6d9ca;
     font-weight: bold;
     font-size: 30px;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .instructions > ul {
