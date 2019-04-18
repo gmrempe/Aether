@@ -17,7 +17,8 @@ class Weapon {
         ctx.fill();
 
         if(this.moves < 1) {
-            this.owner.weapons.shift();
+            // debugger
+            this.owner.weapons.splice(this.owner.weapons.indexOf(this), 1);
             if(this.color === this.target.color) {
                 this.target.counter += 0.5
             } else if (this.target.counter > 0) {
