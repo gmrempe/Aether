@@ -3,15 +3,21 @@
 }
 
 .ui-wrapper {
-    height: 65%;
+    height: 80%;
     overflow: auto;
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
 }
 
-.instructions {
-    margin-top: 50px;
+.ui-wrapper > h1 {
+    text-align: center;
+    /* color: #5b9296; */
+    margin-top: 5px;
+    color: #d6d9ca;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .instructions > ul {
@@ -66,7 +72,7 @@
 
 #settings {
     display: none;
-    height: 60%;
+    height: 75%;
     overflow: auto;
     margin: auto;
     position: absolute;

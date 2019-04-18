@@ -4,7 +4,8 @@ body {
     background-image: url("../images/wind.jpg");
     background-size: cover;
     background-repeat: no-repeat; 
-    /* background-color: #0289f0; */
+    /* background-color: #5b9296; */
+    /* background-image: linear-gradient(to bottom, #5b9296 0%, #327f95 100%); */
 }
 
 section {
@@ -12,11 +13,6 @@ section {
     flex-direction: column;
     align-items: center;
     width: 100%;
-}
-
-h1 {
-    text-shadow: 1px 1px #d6d9ca;
-    font-size: 30px;
 }
 
 body > section > nav {
@@ -27,4 +23,5 @@ body > section > nav {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    z-index: 2;
 }
