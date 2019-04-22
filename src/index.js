@@ -3,9 +3,11 @@ import Base from "./base";
 
 document.addEventListener("DOMContentLoaded", () => {
     const settings = document.getElementById('settings');
+    const instructions = document.getElementById('instructions');
     let canvasEl = document.getElementById("canvas");
     let ctx = canvasEl.getContext("2d");
     const menu = document.getElementById('ui-wrapper');
+
     requestAnimationFrame( () => {
      const b1 = new Base({ x: 70, y: 40 }, 25, "#327f95");
         const b2 = new Base({ x: 550, y: 40 }, 25, "green");
@@ -42,7 +44,18 @@ document.addEventListener("DOMContentLoaded", () => {
         show(settings);
     });
 
+    document.querySelectorAll('.instructions')[0].addEventListener('click', function () {
+        hide(menu);
+        show(instructions);
+    });
+
+
     document.querySelectorAll('.back')[0].addEventListener('click', function () {
+        hide(instructions);
+        show(menu);
+    });
+
+    document.querySelectorAll('.back')[1].addEventListener('click', function () {
         hide(settings);
         show(menu);
     });

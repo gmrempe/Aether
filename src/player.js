@@ -8,21 +8,24 @@ class Player {
     }
     
     swarm(base, target) {
-        const delta = this.deltaMovement(base, target);
-        const num = base.counter;
-        base.counter = base.counter - Math.floor(base.counter / 2);  //generate num of weapons
-        for(let i = 0; i < num; i++) {
-           this.weapons.push(new Weapon (base.posX, base.posY, this.color, delta, this.me, target));
+        if (base) {
+            const delta = this.deltaMovement(base, target);
+            const num = base.counter;
+            base.counter = base.counter - Math.floor(base.counter / 2);  //generate num of weapons
+            for(let i = 0; i < num; i++) {
+            this.weapons.push(new Weapon (base.posX, base.posY, this.color, delta, this.me, target));
+            }
         }
-
     }
 
     deltaMovement(base, target) {
-        const data = this.distanceToBase(base.posX, base.posY, target.posX, target.posY);
-        const moves = data.distance / 2;
-        const x = (base.posX - target.posX) / moves;
-        const y = (base.posY - target.posY) / moves;
-        return {dx: x, dy: y, moves: moves}
+        if (base) {
+            const data = this.distanceToBase(base.posX, base.posY, target.posX, target.posY);
+            const moves = data.distance / 2;
+            const x = (base.posX - target.posX) / moves;
+            const y = (base.posY - target.posY) / moves;
+            return {dx: x, dy: y, moves: moves}
+        }
     }
 
     distanceToBase(x1, y1, x2, y2) {

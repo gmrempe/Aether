@@ -12,36 +12,40 @@
         <section>
             <canvas id="canvas" height="400" width="700" style="background-color: black">
                     <p>Your browser does not support the required functionality for this game</p>
-                </canvas>
-                <nav>
-                    <a href="https://github.com/gmrempe">
-                        <img src="./images/GitHub-Mark-32px.png" alt="Github link"/>
-                    </a>
-                    <a href="https://www.linkedin.com/in/gregory-rempe-4372b3107/">
-                        <img width="35" height="auto" src="./images/linkedin-logo.png" alt="Linkedin link"/>
-                    </a>
-                    <!-- <a> -->
-                        <img width="35" height="auto" src="./images/personal-site.png" alt="Personal Site"/>
-                        <!-- </a> -->
-                    </nav>
-                </section>
-    <div id="ui-wrapper" class="ui-wrapper">
+            </canvas>
+            <nav>
+                <a href="https://github.com/gmrempe">
+                    <img src="./images/GitHub-Mark-32px.png" alt="Github link"/>
+                </a>
+                <a href="https://www.linkedin.com/in/gregory-rempe-4372b3107/">
+                    <img width="35" height="auto" src="./images/linkedin-logo.png" alt="Linkedin link"/>
+                </a>
+                <!-- <a> -->
+                    <img width="35" height="auto" src="./images/personal-site.png" alt="Personal Site"/>
+                <!-- </a> -->
+            </nav>
+        </section>
+        <div id="ui-wrapper" class="ui-wrapper">
             <h1>Aether</h1>
-            <div id="instructions" class="instructions">
-                <ul>
-                    <p>Your color is blue</p>
-                    <p>Click and drag to attack</p>
-                    <p>White circles are neutral</p>
-                    <p>The numbers represent the power of each circle</p>
-                    <p>If your circle number goes below 0, you lose it</p>
-                    <p>Take control of all colored circles to win</p>
-                </ul>
-            </div>
             <a href="javascript:void(0)" class="button play">Start Game</a>
+            <a href="javascript:void(0)" class="button instructions">Instructions</a>
             <a href="javascript:void(0)" class="button settings">Settings</a>
         </div>
         <div id="restart">
             <a href="javascript:void(0)" class="button restart">Menu</a>
+        </div>
+        <div id="instructions">
+            <li class="button back">Back</li>
+            <ul>
+                <p>Your color is blue</p>
+                <p>The number inside each circle represents the power of the circle and will count up every second</p>
+                <p>Click and hold on blue circle, drag mouse to another circle and release to target it</p>
+                <p>This will release half of the circle's power towards the circle you target - the number halves</p>
+                <p>If the circle is blue, the number inside will increase, if not, it will decrease</p>
+                <p>If a circle's number goes below 0, it's color will change</p>
+                <p>White circles are neutral and will neither attack nor count towards ending the game</p>
+                <p>Take control of all colored circles to win</p>
+            </ul>
         </div>
         <div id="settings">
             <ul>

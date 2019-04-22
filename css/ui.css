@@ -3,7 +3,7 @@
 }
 
 .ui-wrapper {
-    height: 80%;
+    height: 65%;
     overflow: auto;
     margin: auto;
     position: absolute;
@@ -16,16 +16,6 @@
     color: #d6d9ca;
     font-weight: bold;
     font-size: 30px;
-}
-
-.instructions > ul {
-    padding-left: 0px;
-}
-
-.instructions > ul > p {
-    text-align: center;
-    color: #5b9296;
-    font-size: 16px;
 }
 
 .button {
@@ -51,13 +41,32 @@
     cursor: pointer;
 }
 
+.instructions {
+    margin-top: 15px;
+}
+
+#instructions {
+    display: none;
+    height: 80%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#instructions > ul {
+    padding-left: 0px;
+}
+
+#instructions > ul > p {
+    text-align: center;
+    color: #5b9296;
+    font-size: 16px;
+}
+
 #restart {
     display: none;
-    text-align: center;
-    padding-top: 92px;
-    z-index: 1;
-    width: 600px;
-    height: 360px;
+    height: 30%;
     overflow: auto;
     margin: auto;
     position: absolute;
@@ -70,7 +79,7 @@
 
 #settings {
     display: none;
-    height: 75%;
+    height: 80%;
     overflow: auto;
     margin: auto;
     position: absolute;
