@@ -1,5 +1,3 @@
-// import Player from "./player";
-// import Base from "./base";
 
 class CanvasState {
     constructor(canvas, player) {
@@ -48,11 +46,11 @@ class CanvasState {
         this.shapes.push(shape)
     }
 
-    getMouse(evt) {
+    getMouse(event) {
         var rect = this.canvas.getBoundingClientRect();
         return {
-            x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
-            y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+            x: (event.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
+            y: (event.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
         };
     }
 

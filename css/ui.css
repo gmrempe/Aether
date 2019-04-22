@@ -45,25 +45,6 @@
     margin-top: 15px;
 }
 
-#instructions {
-    display: none;
-    height: 80%;
-    overflow: auto;
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
-}
-
-#instructions > ul {
-    padding-left: 0px;
-}
-
-#instructions > ul > p {
-    text-align: center;
-    color: #5b9296;
-    font-size: 16px;
-}
-
 #restart {
     display: none;
     height: 30%;

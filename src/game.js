@@ -61,8 +61,8 @@ class Game {
         }
         
         for(let i = 0; i < this.bases.length; i++) {
-            while(Math.abs(this.bases[i].posY - y) <= 35) {
-                y =  30 + (Math.random() * 320);
+            while(Math.abs(this.bases[i].posY - y) <= 55) {
+                y =  55 + (Math.random() * 320);
             }
         }
         return {y: y, x: x};
