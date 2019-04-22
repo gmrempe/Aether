@@ -1,62 +1,27 @@
 # Aether
-  A game to take the winds
+ Aether pits the user against 1 to 3 AI players with the goal of taking control of all the circles.
 
-## MVP
+Game Menu
+![Game Menu](https://github.com/gmrempe/Aether/blob/master/images/Screen%20Shot%202019-04-21%20at%209.35.43%20PM.png)
 
-* Map with dark background
-* x number of objects render to represent places where wind is stored
-* User can release wind from an object to take control of another obj
-* AI can release wind, game ends when one player has no more wind
-* Production README
+Settings Menu
+![Adjust Game Settings](https://github.com/gmrempe/Aether/blob/master/images/Screen%20Shot%202019-04-21%20at%209.36.09%20PM.png)
 
-## Wireframes
-The app will be a single page with the game displayed in the center, Aether will be 
-written at the top and any settings (see Bonus features) off to the right of the map.
-All nav links will be at the bottom, centered.
+# Weapon Animation
+Coordinates are grabbed from mousedown and mouseup events and then used to calculate distance with the pythagorean theorem. The distance is then divided by 2 to give a speed for smooth animation. The following picture shows multiple attacks occuring simultaneously.
 
-![](https://github.com/gmrempe/Aether/blob/master/images/Homepage.png)
+During Game, Player is blue, weapons are small colored circles
+![Player losing in game](https://github.com/gmrempe/Aether/blob/master/images/Screen%20Shot%202019-04-21%20at%209.36.38%20PM.png)
 
+# AI targeting
+Every game is generated with a randomized map using a random number for x and y coordinates on the canvas, AI players then sort all instances of bases in two arrays, one for their bases and one for target bases. The AI then iterates through both it's own bases and target bases and attacks any base with a number that is less than half the number in the AI's base.
 
-## Architecture and Technologies
-* Javascript
-* HTML Canvas 2D API
-* CSS
-* webpack
-
-## RoadMap
-
-Day 1
-Setup basic map with Canvas. Learn basics of Canvas.
-  * Have map on canvas with objs
-  * Have player class framework
-  * Have obj class with control abilities
-  
-Day 2
-Build out player and ai ability to take control of objects.
-  * Finish Player class
-  * Finish Ai class
-  * game class framework
-  * Player logic complete
-  
-Day 3
-Initialize game. Create Levels.
- * wind 'moves' with symbol flips from one frame to the next
- * Levels laid out
- 
-Day 4
-Add settings
- * User can change their color
- * Add sound into background with mute button
- 
-Day 5
-Cleanup bugs, if time permits add multiplayer and upgrade visualization  
- * Two users can play at same time
- * Add custom game parameters into Settings
- * Review visual layout to cleanup any noise and streamline theme
- 
-
-## Bonus Features
- * User can change colors
- * User can play against another user
- * Multiple levels
- * change visual from static map to network visualization
+Each AI uses a different attack pattern for targeting.
+```javascript
+    attackPatternMedium() {
+        this.sortBases();
+        for(let j = 0; j < this.myBases.length; j++) {
+            for(let i = 0; i < this.targetBases.length; i++) {
+                if((this.targetBases[i].counter < (this.myBases[j].counter / 2))) {
+                    this.swarm(this.myBases[j], this.targetBases[i])
+```
