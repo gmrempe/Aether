@@ -4,7 +4,7 @@ import Player from "./player";
 import AI from "./ai";
 
 class Game {
-    constructor(canvasEl, ctx, playerCount, delay, baseNumber) {
+    constructor(canvasEl, ctx, playerCount, delay, baseNumber, menuClick) {
         this.ctx = ctx;
         this.canvas = canvasEl;
         this.playerCount = playerCount;
@@ -19,6 +19,7 @@ class Game {
         this.aiPlayerGenerator();
         this.gameOver = false;
         this.won = false;
+        this.menuClick = menuClick
     }
     
     addShapes() {
@@ -52,7 +53,7 @@ class Game {
     
     basePos() {
         let x = 30 + (Math.random() * 630);
-        let y = 30 + (Math.random() * 320);
+        let y = 30 + (Math.random() * 200);
 
         for(let i = 0; i < this.bases.length; i++) {
             while(Math.abs(this.bases[i].posX - x) <= 35) {
@@ -62,7 +63,7 @@ class Game {
         
         for(let i = 0; i < this.bases.length; i++) {
             while(Math.abs(this.bases[i].posY - y) <= 55) {
-                y =  55 + (Math.random() * 320);
+                y =  60 + (Math.random() * 300);
             }
         }
         return {y: y, x: x};
@@ -107,7 +108,8 @@ class Game {
     drawEndGame() {
         this.ctx.font = "30px Arial";
         this.ctx.fillStyle = "#d6d9ca";
-        
+        this.canvas.removeEventListener("click", this.menuClick);
+
         if (this.won === true) {
             this.ctx.fillText("You Won!", 283, 50)
         } else {

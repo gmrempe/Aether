@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 b4.draw(ctx);
                 
                 let req = {};
-                let gameReq = {};
 
                 function demo() {
                     ctx.clearRect(200, 200, 350, 40);
@@ -66,15 +65,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 ctx.fillStyle = "#327f95";
                 ctx.fillText("Menu", 10, 17)
                 
-                canvas.addEventListener("click", function (e) {
+                function menuClick(e) {
                     const mouse = canvasState.getMouse(e);
                     if (mouse.x < 80 && mouse.x > 0 && mouse.y < 30 && mouse.y > 0) {
                         cancelAnimationFrame(req);
-                        cancelAnimationFrame(gameReq);
+                        canvas.removeEventListener("click", menuClick);
                         drawMenu();
                     }
-                })
+                }
 
+                canvas.addEventListener("click", menuClick)
+                
                 ctx.font = '30px Arial';
                 ctx.fillStyle = "#5b9296";
                 ctx.fillText("Instructions", 275, 40);
@@ -113,25 +114,42 @@ document.addEventListener("DOMContentLoaded", () => {
             hide(settings);
             show(menu);
         });
-    });
-
-const startGame = (playerCount, delay, baseNumber) => {  
-    const canvasEl = document.getElementById("canvas");
-    const ctx = canvasEl.getContext("2d");
-    const game = new Game(canvasEl, ctx, playerCount, delay, baseNumber);  
-    
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.font = '20px Arial';
-        ctx.fillStyle = "#327f95";
-        ctx.fillText("Menu", 10, 17)
-        game.drawGame();
-        gameReq = requestAnimationFrame(draw);
-    }
-
-    requestAnimationFrame( () => {
-        draw();
-    })
-};
-
-export default startGame;
+        
+        const startGame = (playerCount, delay, baseNumber) => {  
+            canvasEl.addEventListener("click", menuClick);
+            
+            function menuClick(e) {
+                const mouse = getMouse(e);
+                if (mouse.x < 80 && mouse.x > 0 && mouse.y < 30 && mouse.y > 0) {
+                    cancelAnimationFrame(gameReq);
+                    canvasEl.removeEventListener("click", menuClick);
+                    drawMenu();
+                }
+            }
+            
+            function getMouse(event) {
+                var rect = canvasEl.getBoundingClientRect();
+                return {
+                    x: (event.clientX - rect.left) / (rect.right - rect.left) * canvasEl.width,
+                    y: (event.clientY - rect.top) / (rect.bottom - rect.top) * canvasEl.height
+                };
+            }
+            
+            const game = new Game(canvasEl, ctx, playerCount, delay, baseNumber, menuClick);  
+            let gameReq = {};
+            
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.font = '20px Arial';
+                ctx.fillStyle = "#327f95";
+                ctx.fillText("Menu", 10, 17)
+                
+                game.drawGame();
+                gameReq = requestAnimationFrame(draw);
+            }
+            
+            requestAnimationFrame( () => {
+                draw();
+            })
+        };     
+});
