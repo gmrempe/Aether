@@ -26,9 +26,9 @@ class Base {
     }
     
     drawCounter(ctx) {
-        ctx.font = "12px Arial";
+        ctx.font = "15px Arial";
         ctx.fillStyle = "rgb(255, 255, 255)";
-        ctx.fillText(this.counter, this.posX -3, this.posY + 4);
+        ctx.fillText(this.counter, this.posX -5, this.posY + 6);
     }
     
     drawBase(ctx) {
