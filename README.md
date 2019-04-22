@@ -1,17 +1,17 @@
 # Aether
-  A game to take the winds
+  A game to take the circles
 
 ## MVP
 
 * Map with dark background
-* x number of objects render to represent places where wind is stored
-* User can release wind from an object to take control of another obj
-* AI can release wind, game ends when one player has no more wind
+* x number of circles render with numbers inside. Numbers increment over time.
+* User can release power from circle to take control of another circle
+* AI can release power, game ends when player has no more circles
 * Production README
 
-## Wireframes
+## Wireframe
 The app will be a single page with the game displayed in the center, Aether will be 
-written at the top and any settings (see Bonus features) off to the right of the map.
+written at the top and any settings (see Bonus features) will be displayed on click of 'Settings' button.
 All nav links will be at the bottom, centered.
 
 ![](https://github.com/gmrempe/Aether/blob/master/images/Homepage.png)
@@ -19,8 +19,8 @@ All nav links will be at the bottom, centered.
 
 ## Architecture and Technologies
 * Javascript
-* HTML Canvas 2D API
-* CSS
+* HTML5 Canvas 2D API
+* CSS3
 * webpack
 
 ## RoadMap
@@ -39,24 +39,19 @@ Build out player and ai ability to take control of objects.
   * Player logic complete
   
 Day 3
-Initialize game. Create Levels.
- * wind 'moves' with symbol flips from one frame to the next
- * Levels laid out
+Initialize game. Player can win and lose.
  
 Day 4
 Add settings
- * User can change their color
- * Add sound into background with mute button
+ * User can change number of AIs
+ * User can select difficulty
+ * User can selecgt number of circles in game
  
 Day 5
-Cleanup bugs, if time permits add multiplayer and upgrade visualization  
+Cleanup bugs, if time permits add multiplayer and upgrade graphics  
  * Two users can play at same time
- * Add custom game parameters into Settings
  * Review visual layout to cleanup any noise and streamline theme
  
-
 ## Bonus Features
  * User can change colors
  * User can play against another user
- * Multiple levels
- * change visual from static map to network visualization
