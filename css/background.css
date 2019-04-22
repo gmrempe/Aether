@@ -4,8 +4,13 @@ body {
     background-image: url("../images/wind.jpg");
     background-size: cover;
     background-repeat: no-repeat; 
-    /* background-color: #5b9296; */
     /* background-image: linear-gradient(to bottom, #5b9296 0%, #327f95 100%); */
+}
+
+#canvas {
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 3px;
+    box-shadow: 10px 10px 8px #000;
 }
 
 section {
