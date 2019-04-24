@@ -51,21 +51,20 @@ class Game {
         }
     }
     
-    basePos() {
-        let x = 30 + (Math.random() * 630);
-        let y = 30 + (Math.random() * 200);
+    basePos() { 
+        let validX = true;
+        let x = 35 + Math.floor((Math.random() * 620));
+        let y = 60 + Math.floor((Math.random() * 300));
+        while(validX) {
+            validX = false;
+            for(let i = 0; i < this.bases.length; i++) {
+                if ((Math.abs(this.bases[i].posX - x) <= 50) && (Math.abs(this.bases[i].posY - y) <= 50)) {
+                    x = 35 + Math.floor((Math.random() * 620));
+                    validX = true;
+                }
+            }
+        }
 
-        for(let i = 0; i < this.bases.length; i++) {
-            while(Math.abs(this.bases[i].posX - x) <= 35) {
-                x = 30 + (Math.random() * 630);
-            }
-        }
-        
-        for(let i = 0; i < this.bases.length; i++) {
-            while(Math.abs(this.bases[i].posY - y) <= 55) {
-                y =  60 + (Math.random() * 300);
-            }
-        }
         return {y: y, x: x};
     }
 
