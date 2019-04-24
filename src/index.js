@@ -77,11 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 canvas.addEventListener("click", menuClick)
                 
                 ctx.font = '30px Arial';
-                ctx.fillStyle = "#5b9296";
+                ctx.fillStyle = "#92adaf";
                 ctx.fillText("Instructions", 275, 40);
                 
                 ctx.font = '15px Arial';
-                ctx.fillStyle = "#5b9296";
+                ctx.fillStyle = "#92adaf";
                 ctx.fillText("Your color is blue", 295, 80);
                 ctx.fillText("The number inside each base is the attack power of the base", 140, 115);
                 ctx.fillText("Click and hold on blue base, drag mouse to the green base and release to target it", 100, 150);

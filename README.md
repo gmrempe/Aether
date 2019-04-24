@@ -1,6 +1,11 @@
 # Aether
  Aether pits the user against 1 to 3 AI players with the goal of taking control of all the circles.
 
+# Technologies
+   * JavaScript
+   * HTML5 Canvas
+   * CSS3
+
 Game Menu
 ![Game Menu](https://github.com/gmrempe/Aether/blob/master/images/Screen%20Shot%202019-04-21%20at%209.35.43%20PM.png)
 
