@@ -1,10 +1,13 @@
 # Aether
- Aether pits the user against 1 to 3 AI players with the goal of taking control of all the circles.
+ Aether pits the user against 1 to 3 AI players with the goal of taking control of all the circles. [Play now](http://gregory-rempe.com/Aether/)
 
 # Technologies
    * JavaScript
    * HTML5 Canvas
    * CSS3
+
+# Getting Started
+Read instructions, change settings or start game
 
 Game Menu
 ![Game Menu](https://github.com/gmrempe/Aether/blob/master/images/Screen%20Shot%202019-04-21%20at%209.35.43%20PM.png)
