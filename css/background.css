@@ -23,10 +23,14 @@ section {
 body > section > nav {
     margin-top: 40px;
     height: 50px;
-    width: 150px;
+    width: 200px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     z-index: 3;
+}
+
+.fa-angellist {
+    color: #000;
 }
