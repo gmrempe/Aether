@@ -32,6 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
             show(settings);
         });
         
+        function backButton() {
+        const gradient = ctx.createLinearGradient(5, 5, 1, 30);
+        gradient.addColorStop(0, '#5b9296');
+        gradient.addColorStop(1, '#327f95');
+        ctx.strokeStyle = gradient;
+        ctx.beginPath();
+        ctx.moveTo(35, 10);
+        ctx.lineTo(15, 30);
+        ctx.lineTo(35, 50);
+        ctx.stroke();
+        }
+
         document.querySelectorAll('.instructions')[0].addEventListener('click', function () {
             hide(menu);
             requestAnimationFrame( () => {
@@ -61,13 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     demo();
                 });
 
-                ctx.font = '20px Arial';
-                ctx.fillStyle = "#327f95";
-                ctx.fillText("Menu", 10, 17)
+                backButton();
                 
                 function menuClick(e) {
                     const mouse = canvasState.getMouse(e);
-                    if (mouse.x < 80 && mouse.x > 0 && mouse.y < 30 && mouse.y > 0) {
+                    if (mouse.x < 40 && mouse.x > 0 && mouse.y < 50 && mouse.y > 0) {
                         cancelAnimationFrame(req);
                         canvas.removeEventListener("click", menuClick);
                         drawMenu();
@@ -120,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             function menuClick(e) {
                 const mouse = getMouse(e);
-                if (mouse.x < 80 && mouse.x > 0 && mouse.y < 30 && mouse.y > 0) {
+                if (mouse.x < 40 && mouse.x > 0 && mouse.y < 50 && mouse.y > 0) {
                     cancelAnimationFrame(gameReq);
                     canvasEl.removeEventListener("click", menuClick);
                     drawMenu();
@@ -140,9 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             function draw() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.font = '20px Arial';
-                ctx.fillStyle = "#327f95";
-                ctx.fillText("Menu", 10, 17)
+                backButton();
                 
                 game.drawGame();
                 gameReq = requestAnimationFrame(draw);
