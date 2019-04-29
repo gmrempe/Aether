@@ -54,11 +54,11 @@ class Game {
     basePos() { 
         let validX = true;
         let x = 45 + Math.floor((Math.random() * 620));
-        let y = 70 + Math.floor((Math.random() * 300));
+        let y = 85 + Math.floor((Math.random() * 285));
         while(validX) {
             validX = false;
             for(let i = 0; i < this.bases.length; i++) {
-                if ((Math.abs(this.bases[i].posX - x) <= 50) && (Math.abs(this.bases[i].posY - y) <= 50)) {
+                if ((Math.abs(this.bases[i].posX - x) <= 55) && (Math.abs(this.bases[i].posY - y) <= 55)) {
                     x = 45 + Math.floor((Math.random() * 620));
                     validX = true;
                 }
