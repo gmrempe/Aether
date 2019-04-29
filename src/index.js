@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ctx.fillStyle = "#92adaf";
                 ctx.fillText("Your color is blue", 295, 80);
                 ctx.fillText("The number inside each base is the attack power of the base", 140, 115);
-                ctx.fillText("Click and hold on blue base, drag mouse to the green base and release to target it", 100, 150);
+                ctx.fillText("Click and hold over the blue base, drag mouse to the green base and release click to target it", 70, 150);
                 ctx.fillText("If a base's number goes below 0, it's ownership will change", 140, 280);
                 ctx.fillText("White bases are neutral and will not attack", 140, 315);
                 ctx.fillText("Take control of all enemy bases to win", 220, 370);
