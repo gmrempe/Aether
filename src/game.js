@@ -54,7 +54,7 @@ class Game {
     basePos() { 
         let validX = true;
         let x = 45 + Math.floor((Math.random() * 620));
-        let y = 60 + Math.floor((Math.random() * 300));
+        let y = 70 + Math.floor((Math.random() * 300));
         while(validX) {
             validX = false;
             for(let i = 0; i < this.bases.length; i++) {

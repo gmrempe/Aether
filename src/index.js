@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         function backButton() {
         const gradient = ctx.createLinearGradient(5, 5, 1, 30);
-        gradient.addColorStop(0, '#5b9296');
+        gradient.addColorStop(0, '#92adaf');
         gradient.addColorStop(1, '#327f95');
         ctx.strokeStyle = gradient;
         ctx.beginPath();
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 function menuClick(e) {
                     const mouse = canvasState.getMouse(e);
-                    if (mouse.x < 40 && mouse.x > 0 && mouse.y < 50 && mouse.y > 0) {
+                    if (mouse.x < 40 && mouse.x > 0 && mouse.y < 65 && mouse.y > 0) {
                         cancelAnimationFrame(req);
                         canvas.removeEventListener("click", menuClick);
                         drawMenu();
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             function menuClick(e) {
                 const mouse = getMouse(e);
-                if (mouse.x < 40 && mouse.x > 0 && mouse.y < 50 && mouse.y > 0) {
+                if (mouse.x < 40 && mouse.x > 0 && mouse.y < 65 && mouse.y > 0) {
                     cancelAnimationFrame(gameReq);
                     canvasEl.removeEventListener("click", menuClick);
                     drawMenu();
